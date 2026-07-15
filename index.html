@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滋賀県自衛隊家族会 | 守る人を、支える家族の絆</title>
+    <meta name="description" content="滋賀県自衛隊家族会の公式ホームページです。私たちは自衛隊員の活動を支え、ご家族の絆を深め、地域社会との架け架け橋となる活動を行っています。大津駐屯地、今津駐屯地、饗庭野分屯基地と連携しています。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-area" onclick="switchTab('home'); return false;">
+                <img src="assets/logo.jpg" alt="滋賀県自衛隊家族会 ロゴ" class="header-logo">
+                <div class="logo-text">
+                    <span class="logo-title">滋賀県自衛隊家族会</span>
+                    <span class="logo-subtitle">SHIGA SELF-DEFENSE FORCES FAMILY ASSOCIATION</span>
+                </div>
+            </a>
+            <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="メニューを開く">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#home" class="nav-link active" onclick="switchTab('home')">ホーム</a></li>
+                    <li><a href="#greeting" class="nav-link" onclick="switchTab('greeting')">会長挨拶</a></li>
+                    <li><a href="#survey" class="nav-link" onclick="switchTab('survey')">出欠アンケート</a></li>
+                    <li><a href="#events" class="nav-link" onclick="switchTab('events')">活動報告</a></li>
+                    <li><a href="#ai-events" class="nav-link" onclick="switchTab('ai-events')">AIイベント情報</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero-section" style="background-image: linear-gradient(rgba(11, 29, 51, 0.65), rgba(11, 29, 51, 0.88)), url('assets/hero.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag animate-fade-in">滋賀県から、日本の平和を支える</span>
+            <h1 class="hero-title animate-slide-up">守る人を、支える家族の絆。</h1>
+            <p class="hero-lead animate-slide-up">自衛隊員の健やかな活動と、ご家族の安心をサポートする滋賀県自衛隊家族会です。</p>
+            <div class="hero-actions animate-slide-up">
+                <a href="#survey" class="btn btn-primary" onclick="switchTab('survey')">総会・役員会 出欠提出</a>
+                <a href="#ai-events" class="btn btn-secondary" onclick="switchTab('ai-events')">最新イベント情報</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span class="mouse">
+                <span class="wheel"></span>
+            </span>
+            <span class="scroll-text">SCROLL</span>
+        </div>
+    </section>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <!-- ホームセクション -->
+        <section id="home-section" class="tab-content active-tab">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-title">ABOUT US</span>
+                    <h2 class="section-title">滋賀県自衛隊家族会について</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>隊員と家族の支援</h3>
+                        <p>過酷な任務に従事する自衛隊員の皆様を後方から温かく支え、ご家族が安心して見守れる環境づくりと相互扶助に尽力しています。</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>会員相互の親睦・交流</h3>
+                        <p>滋賀県内の各地域会での交流会や勉強会、駐屯地見学会を通じて、家族会会員同士の絆と情報共有を深めています。</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                        </div>
+                        <h3>地域社会への貢献</h3>
+                        <p>自衛隊地方協力本部や各駐屯地・基地と緊密に連携し、防災活動への協力や広報イベント等の地域イベントへの参画を行っています。</p>
+                    </div>
+                </div>
+
+                <div class="home-layout">
+                    <div class="home-main">
+                        <!-- お知らせ・新着情報 -->
+                        <div class="news-container">
+                            <h3 class="subsection-title">新着情報</h3>
+                            <div class="news-list">
+                                <article class="news-item">
+                                    <span class="news-date">2026.07.01</span>
+                                    <span class="news-category tag-announcement">重要</span>
+                                    <a href="#survey" onclick="switchTab('survey')" class="news-title">令和8年度 定期総会及び懇親会のご案内（出欠受付開始）</a>
+                                </article>
+                                <article class="news-item">
+                                    <span class="news-date">2026.06.15</span>
+                                    <span class="news-category tag-event">イベント</span>
+                                    <a href="#events" onclick="switchTab('events')" class="news-title">大津駐屯地 新隊員（一般曹候補生）修了式への見学報告</a>
+                                </article>
+                                <article class="news-item">
+                                    <span class="news-date">2026.05.20</span>
+                                    <span class="news-category tag-activity">活動報告</span>
+                                    <a href="#events" onclick="switchTab('events')" class="news-title">饗庭野演習場 周辺クリーンキャンペーンへの参加について</a>
+                                </article>
+                                <article class="news-item">
+                                    <span class="news-date">2026.05.01</span>
+                                    <span class="news-category tag-info">お知らせ</span>
+                                    <a href="#" onclick="alert('滋賀県家族会だより第45号は各地区会にて郵送または手渡しにて配布しております。オンライン版は現在準備中です。'); return false;" class="news-title">滋賀県自衛隊家族会「家族会だより 第45号」を発行しました</a>
+                                </article>
+                            </div>
+                        </div>
+
+                        <!-- 滋賀県内の自衛隊施設紹介 -->
+                        <div class="camps-container">
+                            <h3 class="subsection-title">県内自衛隊施設・部隊紹介</h3>
+                            <div class="camps-grid">
+                                <div class="camp-card">
+                                    <h4>陸上自衛隊 大津駐屯地</h4>
+                                    <p class="camp-desc">大津市に所在し、新入隊員の教育を担う「中部方面混成団」や「第109教育大隊」が駐屯。滋賀県家族会は新隊員の門出を力強く応援しています。</p>
+                                </div>
+                                <div class="camp-card">
+                                    <h4>陸上自衛隊 今津駐屯地</h4>
+                                    <p class="camp-desc">高島市に所在し、「第3偵察戦闘大隊」や「第3特科連隊」などが所在。琵琶湖西岸の要衝として、実戦的な訓練を展開しています。</p>
+                                </div>
+                                <div class="camp-card">
+                                    <h4>航空自衛隊 饗庭野分屯基地</h4>
+                                    <p class="camp-desc">同じく高島市に所在し、日本の防空を担う地対空誘導弾ペトリオットを配備する「第12高射隊」が日本の空の安全を見守っています。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- サイドバー -->
+                    <aside class="home-sidebar">
+                        <div class="sidebar-widget join-widget">
+                            <h4>滋賀県家族会へ入会しませんか？</h4>
+                            <p>自衛隊にお子様・ご親族を送り出されているご家族の皆様、ぜひ家族会にご入会ください。同じ想いを持つ仲間と出会い、情報共有や相談ができます。</p>
+                            <a href="#" onclick="alert('入会のお申し込みありがとうございます。滋賀県自衛隊家族会事務局（電話：077-XXX-XXXX またはメール shiga-family@example.com）までお気軽にお問い合わせください。現在オンラインフォームでの入会申請機能も準備中です。'); return false;" class="btn btn-primary btn-full">入会のお問い合わせ</a>
+                        </div>
+                        <div class="sidebar-widget link-widget">
+                            <h4>関連リンク</h4>
+                            <ul class="link-list">
+                                <li><a href="https://www.mod.go.jp/pco/shiga/" target="_blank" rel="noopener">自衛隊滋賀地方協力本部</a></li>
+                                <li><a href="https://www.mod.go.jp/gsdf/mae/otutu/" target="_blank" rel="noopener">陸上自衛隊 大津駐屯地</a></li>
+                                <li><a href="https://www.mod.go.jp/gsdf/mae/3d/imazu/" target="_blank" rel="noopener">陸上自衛隊 今津駐屯地</a></li>
+                                <li><a href="https://www.mod.go.jp/asdf/aibanod/" target="_blank" rel="noopener">航空自衛隊 饗庭野分屯基地</a></li>
+                                <li><a href="https://www.jieitai-kazokukai.or.jp/" target="_blank" rel="noopener">公益社団法人 自衛隊家族会</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- 会長挨拶セクション -->
+        <section id="greeting-section" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-title">MESSAGE</span>
+                    <h2 class="section-title">会長挨拶</h2>
+                </div>
+                <div class="greeting-layout">
+                    <div class="greeting-image-container">
+                        <div class="greeting-photo-wrapper">
+                            <!-- 会長の肖像用プレースホルダーをシンボリックに表現したグラフィック -->
+                            <div class="greeting-avatar">
+                                <span class="avatar-letter">饗</span>
+                            </div>
+                        </div>
+                        <div class="greeting-profile">
+                            <p class="profile-name">饗庭 太郎 <span class="profile-title">（あいば たろう）</span></p>
+                            <p class="profile-post">滋賀県自衛隊家族会 会長</p>
+                        </div>
+                    </div>
+                    <div class="greeting-body">
+                        <h3 class="greeting-heading">「守る人を、支える絆」の輪を滋賀から広げてまいります</h3>
+                        <p>滋賀県自衛隊家族会の公式ホームページにお越しいただき、誠にありがとうございます。</p>
+                        <p>私たち自衛隊家族会は、自衛隊員のご家族、そして自衛隊を支援してくださる地域の方々で構成される自主的な組織です。平素より、陸上自衛隊大津駐屯地、今津駐屯地、そして航空自衛隊饗庭野分屯基地など、滋賀県内に所在する部隊や自衛隊滋賀地方協力本部に対し、多大なるご理解とご協力を賜り、厚く御礼申し上げます。</p>
+                        <p>現在、自衛隊を取り巻く安全保障環境は厳しさを増しており、防衛出動や災害派遣など、隊員たちの果たす責任は極めて大きくなっています。そのような状況下で、隊員たちが身を挺して国防や災害救援に専念できるのは、何よりも「家族の温かい支え」があるからに他なりません。</p>
+                        <p>しかしながら、送り出すご家族の皆様におかれましても、「子供は元気にやっているだろうか」「任務に危険はないだろうか」といった不安や孤独を抱えられることがあるかと思います。私たち家族会は、そのようなご家族同士が寄り添い、励まし合い、情報交換を行える温かい「居場所」でありたいと考えております。</p>
+                        <p>この度、滋賀県自衛隊家族会として新たなホームページを開設する運びとなりました。これまでは伝わりにくかった各地区会の活動内容や、役員会・総会のペーパーレスな出欠管理、およびAIを活用した最新のイベント情報など、会員の皆様の利便性向上に繋がる機能を盛り込んでおります。</p>
+                        <p>自衛隊という日本の平和の砦を、滋賀県というこの地から、ご家族の強い「絆」でしっかりと支えていくために。これからも家族会一丸となって活動を推進してまいります。皆様の温かいご支援と、積極的なご参加を心よりお待ち申し上げます。</p>
+                        <p class="greeting-date">令和8年7月吉日</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 出欠アンケート調査セクション -->
+        <section id="survey-section" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-title">ATTENDANCE</span>
+                    <h2 class="section-title">役員会・総会 出欠アンケート</h2>
+                </div>
+
+                <div class="survey-tabs">
+                    <button class="survey-tab-btn active" id="survey-tab-form-btn" onclick="switchSurveyTab('form')">出欠を回答する</button>
+                    <button class="survey-tab-btn" id="survey-tab-results-btn" onclick="switchSurveyTab('results')">回答状況を確認する (管理者用)</button>
+                </div>
+
+                <!-- 回答フォーム -->
+                <div id="survey-form-panel" class="survey-panel active">
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <h3>出欠回答フォーム</h3>
+                            <p class="card-subtitle">以下の項目を入力し、出欠情報を送信してください。</p>
+                        </div>
+                        <form id="attendance-form" class="modern-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="member-name">ご氏名 <span class="required">必須</span></label>
+                                    <input type="text" id="member-name" required placeholder="例：家族 太郎">
+                                </div>
+                                <div class="form-group">
+                                    <label for="member-district">所属地区会 <span class="required">必須</span></label>
+                                    <select id="member-district" required>
+                                        <option value="" disabled selected>選択してください</option>
+                                        <option value="大津地区会">大津地区会</option>
+                                        <option value="草津地区会">草津地区会</option>
+                                        <option value="守山地区会">守山地区会</option>
+                                        <option value="栗東地区会">栗東地区会</option>
+                                        <option value="野洲地区会">野洲地区会</option>
+                                        <option value="近江八幡地区会">近江八幡地区会</option>
+                                        <option value="東近江地区会">東近江地区会</option>
+                                        <option value="彦根地区会">彦根地区会</option>
+                                        <option value="長浜地区会">長浜地区会</option>
+                                        <option value="高島地区会">高島地区会</option>
+                                        <option value="甲賀地区会">甲賀地区会</option>
+                                        <option value="湖南地区会">湖南地区会</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="member-role">役職・区分</label>
+                                    <select id="member-role">
+                                        <option value="一般会員" selected>一般会員</option>
+                                        <option value="地区役員">地区役員</option>
+                                        <option value="県役員・理事">県役員・理事</option>
+                                        <option value="会長・副会長">会長・副会長</option>
+                                        <option value="監事">監事</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="target-meeting">対象の会議 <span class="required">必須</span></label>
+                                    <select id="target-meeting" required>
+                                        <option value="令和8年度 定期総会・懇親会 (2026/08/23)">令和8年度 定期総会・懇親会 (2026/08/23)</option>
+                                        <option value="第1回 理事・役員会 (2026/07/25)">第1回 理事・役員会 (2026/07/25)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>出欠状況 <span class="required">必須</span></label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="attendance-status" value="出席" checked>
+                                        <span class="custom-radio"></span>
+                                        ご出席
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="attendance-status" value="欠席">
+                                        <span class="custom-radio"></span>
+                                        ご欠席
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="attendance-status" value="保留">
+                                        <span class="custom-radio"></span>
+                                        保留（追って連絡）
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- 欠席の場合の委任状 -->
+                            <div class="form-group proxy-section" id="proxy-section" style="display: none;">
+                                <label for="proxy-choice">委任状のご提出（ご欠席の場合のみ）</label>
+                                <select id="proxy-choice">
+                                    <option value="議長に委任します">議長に委任します</option>
+                                    <option value="他の出席会員に委任します">他の出席会員（代理人）に委任します</option>
+                                    <option value="委任しません">委任しません</option>
+                                </select>
+                                <input type="text" id="proxy-name" placeholder="代理人の氏名（他の出席会員に委任する場合のみ）" style="margin-top: 8px; display: none;" class="text-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="member-comment">ご意見・ご連絡事項</label>
+                                <textarea id="member-comment" rows="4" placeholder="近況、質問、欠席の理由などがあればご記入ください。"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-submit">回答を送信する</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 集計結果パネル -->
+                <div id="survey-results-panel" class="survey-panel">
+                    <div class="results-grid">
+                        <div class="glass-card chart-card">
+                            <h3>回答集計サマリー</h3>
+                            <div class="chart-container">
+                                <!-- CSSとJSで動的に描画する円グラフ風のインジケーター -->
+                                <div class="dynamic-pie-chart" id="pie-chart">
+                                    <div class="chart-center">
+                                        <span class="total-count" id="total-responses">0</span>
+                                        <span class="total-label">回答件数</span>
+                                    </div>
+                                </div>
+                                <div class="chart-legend" id="chart-legend">
+                                    <div class="legend-item"><span class="legend-color color-attend"></span>出席: <span id="legend-attend-pct">0%</span> (<span id="legend-attend-count">0</span>件)</div>
+                                    <div class="legend-item"><span class="legend-color color-absent"></span>欠席: <span id="legend-absent-pct">0%</span> (<span id="legend-absent-count">0</span>件)</div>
+                                    <div class="legend-item"><span class="legend-color color-pending"></span>保留: <span id="legend-pending-pct">0%</span> (<span id="legend-pending-count">0</span>件)</div>
+                                </div>
+                            </div>
+                            <div class="chart-actions">
+                                <button class="btn btn-outline btn-small" id="reset-survey-btn">データリセット</button>
+                                <button class="btn btn-secondary btn-small" id="add-mock-btn">デモ用サンプルデータを追加</button>
+                            </div>
+                        </div>
+
+                        <div class="glass-card list-card">
+                            <h3>回答者一覧</h3>
+                            <div class="table-wrapper">
+                                <table class="results-table">
+                                    <thead>
+                                        <tr>
+                                            <th>氏名</th>
+                                            <th>地区会</th>
+                                            <th>会議名</th>
+                                            <th>出欠</th>
+                                            <th>委任状況 / コメント</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="results-table-body">
+                                        <!-- JSで挿入 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 活動報告セクション -->
+        <section id="events-section" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-title">ACTIVITIES</span>
+                    <h2 class="section-title">自衛隊イベント活動報告</h2>
+                </div>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <div class="article-badge">活動報告</div>
+                        <div class="article-content">
+                            <span class="article-date">2026.06.15</span>
+                            <h3>大津駐屯地一般曹候補生 修了式見学</h3>
+                            <p>大津駐屯地の教育大隊における3ヶ月間の厳しい訓練を終えた新入隊員たちの修了式を、家族会として見学・激励しました。堂々たる行進と引き締まった表情に、感動の涙を流す家族も多く見られました。滋賀県家族会では、今後も彼らの防衛人としての歩みを温かく支援してまいります。</p>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-badge">ボランティア</div>
+                        <div class="article-content">
+                            <span class="article-date">2026.05.20</span>
+                            <h3>饗庭野演習場周辺道路 クリーン作戦</h3>
+                            <p>高島市今津町の饗庭野（あいばの）演習場周辺道路にて、今津駐屯地部隊や近隣住民の方々と合同で清掃ボランティア活動を実施しました。演習場周辺の美化を図るとともに、地域住民と自衛隊、そして家族会との友好親善をさらに深める良い機会となりました。総勢50名で大量のゴミを回収しました。</p>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-badge">イベント</div>
+                        <div class="article-content">
+                            <span class="article-date">2026.04.10</span>
+                            <h3>今津駐屯地創立記念行事 家族会交流ブース出展</h3>
+                            <p>春爛漫の今津駐屯地にて開催された「今津駐屯地創立記念行事」にて、滋賀県自衛隊家族会としての特設交流ブースを出展しました。現役隊員のご家族、そして入会を検討されている一般来場者様からの相談に対応し、多くの新規会員との出会いがありました。体験搭乗の案内なども行い賑わいました。</p>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-badge">お知らせ</div>
+                        <div class="article-content">
+                            <span class="article-date">2026.03.12</span>
+                            <h3>新入隊員ご家族のためのオンライン個別相談会</h3>
+                            <p>今春から全国各地の教育隊へ入隊する新隊員の不安を解消するため、家族会役員による個別オンライン懇談会を実施しました。「宿舎での生活はどのようなものか」「連絡はどのくらい取れるのか」といった不安に対し、先輩家族のリアルな体験談を交えてアドバイスを送り、非常に喜ばれました。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI最新イベント情報セクション -->
+        <section id="ai-events-section" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-title">AI EVENT HUB</span>
+                    <h2 class="section-title">AI取得・最新イベント開催情報</h2>
+                </div>
+
+                <div class="ai-dashboard">
+                    <!-- AIステータスパネル -->
+                    <div class="glass-card ai-status-card">
+                        <div class="ai-header">
+                            <div class="ai-icon-pulse">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </div>
+                            <div>
+                                <h3>AI情報収集エージェント</h3>
+                                <p class="status-online">オンライン / 自衛隊滋賀地方協力本部HPと同期中</p>
+                            </div>
+                        </div>
+                        <p class="ai-intro">
+                            滋賀地本(JSDF Shiga PCO)等の公開情報から、自衛隊の一般公開イベント、駐屯地記念行事、募集説明会などの最新開催情報をAI（Gemini）が解析・自動集約して掲載するシミュレーションシステムです。
+                        </p>
+                        
+                        <div class="ai-terminal">
+                            <div class="terminal-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="terminal-title">AI-Agent Terminal</span>
+                            </div>
+                            <div class="terminal-body" id="terminal-log">
+                                <div class="log-line">SYSTEM: AI-Agent initialized. Ready to fetch data.</div>
+                                <div class="log-line">SYSTEM: Last checked: <span id="last-check-time">2026-07-07 23:00</span></div>
+                                <div class="log-line">SYSTEM: Click the button below to simulate live AI scraping...</div>
+                            </div>
+                        </div>
+
+                        <div class="ai-actions">
+                            <button class="btn btn-gold btn-large" id="trigger-scrape-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon-disabled" id="scrape-icon"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                <span id="scrape-btn-text">AIで最新のイベント情報を収集する</span>
+                            </button>
+                        
+document.getElementById('trigger-scrape-btn').addEventListener('click', function() {
+    const url = 'https://script.google.com/macros/s/AKfycbw0P5AkJKkWbIjIyKVOM7UXcudTsf58of_TZdVrSg_W6375_68rpllPH3h_D-nRWoespA/exec';
+    fetch(url)
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        // ここに取得したデータを画面に表示する処理などを追加できます
+    })
+    .catch(error => {
+        console.error('エラー:', error);
+    });
+});
+</div>
+                    </div>
+
+                    <!-- 収集されたイベントリスト -->
+                    <div class="events-list-container">
+                        <h3>現在取得済みのイベントスケジュール</h3>
+                        <div class="events-timeline" id="events-timeline">
+                            <!-- 初期イベント (JSで動的にロードされる) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/logo.jpg" alt="滋賀県自衛隊家族会 ロゴ" class="footer-logo">
+                <div>
+                    <h4>滋賀県自衛隊家族会</h4>
+                    <p>守る人を、支える家族の絆。</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#" onclick="switchTab('home'); return false;">ホーム</a></li>
+                    <li><a href="#" onclick="switchTab('greeting'); return false;">会長挨拶</a></li>
+                    <li><a href="#" onclick="switchTab('survey'); return false;">出欠アンケート</a></li>
+                    <li><a href="#" onclick="switchTab('events'); return false;">活動報告</a></li>
+                    <li><a href="#" onclick="switchTab('ai-events'); return false;">AIイベント情報</a></li>
+                </ul>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 滋賀県自衛隊家族会 All Rights Reserved. (デモサイト)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
