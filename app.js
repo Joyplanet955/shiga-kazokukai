@@ -3,7 +3,7 @@
 // ============================================================
 
 // ↓↓↓ ここを、GASをデプロイして発行された /exec URLに書き換えてください ↓↓↓
-const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwcNwrU8PUtijERr3LHfdSrJg_-VD8Y6XsmnKMDydfq009HykyCQPdBDkuYbl-9hH1p0A/exec";
+const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbw0P5AkJKkWbIjIyKVOM7UXcudTsf58of_TZdVrSg_W6375_68rpllPH3h_D-nRWoespA/exec";
 // ↑↑↑ ここを、GASをデプロイして発行された /exec URLに書き換えてください ↑↑↑
 
 const BRANCH_COLOR = { "陸": "#3f7d4f", "海": "#2a5c8a", "空": "#3f8ac9", "他": "#8a8a8a" };
@@ -105,29 +105,21 @@ function renderEventCard(ev, index) {
 }
 
 function fetchAndRenderEvents() {
-  var btn = document.getElementById("trigger-scrape-btn");
-  var btnText = document.getElementById("scrape-btn-text");
-  var icon = document.getElementById("scrape-icon");
-  var timeline = document.getElementById("events-timeline");
+  var callbackName = 'gasCallback_' + Date.now();
 
-  if (btn) btn.disabled = true;
-  if (btnText) btnText.textContent = "取得中...";
-  if (icon) { icon.classList.remove("spin-icon-disabled"); icon.classList.add("spin-icon"); }
-  appendLog("SYSTEM: 各基地の最新情報を取得しています...", "system");
+  window[callbackName] = function(events) {
+    renderEvents(events); // ← 既存のカード描画処理をここで呼ぶ
+    delete window[callbackName];
+    document.body.removeChild(script);
+  };
 
-  fetch(GAS_WEBAPP_URL + "?format=json")
-    .then(function (res) {
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      return res.json();
-    })
-    .then(function (events) {
-      window.__aiEventsLoaded = true;
-
-      if (!events || events.length === 0) {
-        timeline.innerHTML = '<p style="text-align:center; color:var(--text-muted);">現在取得できるイベント情報がありません。</p>';
-        appendLog("SYSTEM: イベント情報が0件でした。", "system");
-        return;
-      }
+  var script = document.createElement('script');
+  script.src = GAS_URL + '?format=json&callback=' + callbackName;
+  script.onerror = function() {
+    console.error('AIイベント取得エラー: データの読み込みに失敗しました');
+  };
+  document.body.appendChild(script);
+}
 
       timeline.innerHTML = events.map(renderEventCard).join("");
       appendLog("SUCCESS: " + events.length + "件のイベント情報を反映しました。", "success");
