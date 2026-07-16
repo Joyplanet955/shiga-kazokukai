@@ -105,47 +105,56 @@ function renderEventCard(ev, index) {
 }
 
 function fetchAndRenderEvents() {
-  var callbackName = 'gasCallback_' + Date.now();
+  var btn = document.getElementById("trigger-scrape-btn");
+  var btnText = document.getElementById("scrape-btn-text");
+  var icon = document.getElementById("scrape-icon");
+  var timeline = document.getElementById("events-timeline");
 
-  window[callbackName] = function(events) {
-    renderEvents(events); // ← 既存のカード描画処理をここで呼ぶ
-    delete window[callbackName];
-    document.body.removeChild(script);
+  if (btn) btn.disabled = true;
+  if (btnText) btnText.textContent = "取得中...";
+  if (icon) { icon.classList.remove("spin-icon-disabled"); icon.classList.add("spin-icon"); }
+
+  appendLog("PROCESS: GASサーバーへ問い合わせ中...", "process");
+
+  var callbackName = "gasCallback_" + Date.now();
+
+  window[callbackName] = function (events) {
+    window.__aiEventsLoaded = true;
+
+    if (timeline) {
+      timeline.innerHTML = events.map(renderEventCard).join("");
+    }
+    appendLog("SUCCESS: " + events.length + "件のイベント情報を反映しました。", "success");
+
+    var now = new Date();
+    var timeStr = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0")
+      + " " + String(now.getHours()).padStart(2, "0") + ":" + String(now.getMinutes()).padStart(2, "0");
+    var lastCheck = document.getElementById("last-check-time");
+    if (lastCheck) lastCheck.textContent = timeStr;
+
+    cleanup();
   };
 
-  var script = document.createElement('script');
-  script.src = GAS_URL + '?format=json&callback=' + callbackName;
-  script.onerror = function() {
-    console.error('AIイベント取得エラー: データの読み込みに失敗しました');
+  var script = document.createElement("script");
+  script.src = GAS_WEBAPP_URL + "?format=json&callback=" + callbackName;
+  script.onerror = function () {
+    appendLog("ERROR: 情報の取得に失敗しました。", "process");
+    console.error("AIイベント取得エラー: スクリプトの読み込みに失敗しました");
+    cleanup();
   };
   document.body.appendChild(script);
-}
 
-      timeline.innerHTML = events.map(renderEventCard).join("");
-      appendLog("SUCCESS: " + events.length + "件のイベント情報を反映しました。", "success");
-
-      var now = new Date();
-      var timeStr = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0")
-        + " " + String(now.getHours()).padStart(2, "0") + ":" + String(now.getMinutes()).padStart(2, "0");
-      var lastCheck = document.getElementById("last-check-time");
-      if (lastCheck) lastCheck.textContent = timeStr;
-    })
-    .catch(function (err) {
-      appendLog("ERROR: 情報の取得に失敗しました (" + err.message + ")", "process");
-      console.error("AIイベント取得エラー:", err);
-    })
-    .finally(function () {
-      if (btn) btn.disabled = false;
-      if (btnText) btnText.textContent = "AIで最新のイベント情報を収集する";
-      if (icon) { icon.classList.remove("spin-icon"); icon.classList.add("spin-icon-disabled"); }
-    });
+  function cleanup() {
+    delete window[callbackName];
+    if (script.parentNode) script.parentNode.removeChild(script);
+    if (btn) btn.disabled = false;
+    if (btnText) btnText.textContent = "AIで最新のイベント情報を収集する";
+    if (icon) { icon.classList.remove("spin-icon"); icon.classList.add("spin-icon-disabled"); }
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   var btn = document.getElementById("trigger-scrape-btn");
-  if (btn) btn.addEventListener("click", fetchAndRenderEvents);
-});
-
 // ============================================================
 // 出欠アンケート（簡易・ブラウザ内メモリ保持のみ / デモ用）
 // ============================================================
