@@ -3,7 +3,7 @@
 // ============================================================
 
 // ↓↓↓ ここを、GASをデプロイして発行された /exec URLに書き換えてください ↓↓↓
-const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwcNwrU8PUtijERr3LHfdSrJg_-VD8Y6XsmnKMDydfq009HykyCQPdBDkuYbl-9hH1p0A/exec";
+const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbw0P5AkJKkWbIjIyKVOM7UXcudTsf58of_TZdVrSg_W6375_68rpllPH3h_D-nRWoespA/exec";
 // ↑↑↑ ここを、GASをデプロイして発行された /exec URLに書き換えてください ↑↑↑
 
 const BRANCH_COLOR = { "陸": "#3f7d4f", "海": "#2a5c8a", "空": "#3f8ac9", "他": "#8a8a8a" };
