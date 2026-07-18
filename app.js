@@ -155,6 +155,8 @@ function fetchAndRenderEvents() {
 
 document.addEventListener("DOMContentLoaded", function () {
   var btn = document.getElementById("trigger-scrape-btn");
+  if (btn) btn.addEventListener("click", fetchAndRenderEvents);
+});
 // ============================================================
 // 出欠アンケート（簡易・ブラウザ内メモリ保持のみ / デモ用）
 // ============================================================
