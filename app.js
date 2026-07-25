@@ -49,10 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 初期表示はホーム
+// 初期表示はホーム
   switchTab("home");
 
   setupSurveyForm();
+
+  // ページを開いた瞬間に、裏側でAIイベント情報を取得しておく
+  fetchAndRenderEvents();
 });
 
 // ============================================================
@@ -104,6 +107,32 @@ function renderEventCard(ev, index) {
   return html;
 }
 
+function renderNewsFromEvents(events) {
+  var container = document.getElementById("news-list");
+  if (!container) return;
+
+  var withNews = events.filter(function (ev) { return ev.hasNews; });
+  if (withNews.length === 0) return; // 情報が無ければ今の表示のままにする
+
+  // 取得日時が新しい順に並べる
+  withNews.sort(function (a, b) {
+    return b.fetchedAt.localeCompare(a.fetchedAt);
+  });
+
+  var topNews = withNews.slice(0, 4);
+
+  container.innerHTML = topNews.map(function (ev) {
+    var dateLabel = ev.fetchedAt.split(" ")[0].replace(/\//g, ".");
+    return '<article class="news-item">'
+      + '<span class="news-date">' + escapeHtml(dateLabel) + '</span>'
+      + '<span class="news-category tag-event">AI取得</span>'
+      + '<a href="' + escapeHtml(ev.link || "#") + '" target="_blank" rel="noopener" class="news-title">'
+      + escapeHtml(ev.baseName) + '：' + escapeHtml(ev.eventName)
+      + '</a>'
+      + '</article>';
+  }).join("");
+}
+
 function fetchAndRenderEvents() {
   var btn = document.getElementById("trigger-scrape-btn");
   var btnText = document.getElementById("scrape-btn-text");
@@ -120,6 +149,7 @@ function fetchAndRenderEvents() {
 
   window[callbackName] = function (events) {
     window.__aiEventsLoaded = true;
+　　renderNewsFromEvents(events); 
 
     if (timeline) {
       timeline.innerHTML = events.map(renderEventCard).join("");
