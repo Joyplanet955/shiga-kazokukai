@@ -107,12 +107,47 @@ function renderEventCard(ev, index) {
   return html;
 }
 
+// イベントの日付文字列を解析して、過去かどうか判定できるようにする
+function parseEventDate(dateStr) {
+  if (!dateStr || dateStr === "-") return null;
+
+  // パターン1: "2026年8月5日（水）" のような形式
+  var m = dateStr.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+  if (m) {
+    return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+  }
+
+  // パターン2: 日にちが抜けている "2026年4月（火）" のような形式
+  //   → その月の末日として扱う（誤って除外しないよう甘めに判定）
+  m = dateStr.match(/(\d{4})年(\d{1,2})月/);
+  if (m) {
+    return new Date(Number(m[1]), Number(m[2]), 0);
+  }
+
+  // パターン3: JavaScriptがそのまま解釈できる形式（AIが英語形式で返した場合など）
+  var fallback = new Date(dateStr);
+  if (!isNaN(fallback.getTime())) return fallback;
+
+  // 解析できない場合は「わからない」を意味するnullを返す
+  return null;
+}
+
 function renderNewsFromEvents(events) {
   var container = document.getElementById("news-list");
   if (!container) return;
 
-  var withNews = events.filter(function (ev) { return ev.hasNews; });
-  if (withNews.length === 0) return; // 情報が無ければ今の表示のままにする
+  var today = new Date();
+  today.setHours(0, 0, 0, 0); // 今日の0時0分を基準にする（今日開催のものは表示する）
+
+  var withNews = events.filter(function (ev) {
+    if (!ev.hasNews) return false;
+    var eventDate = parseEventDate(ev.date);
+    // 日付が解析できない場合は、念のため表示する（誤って隠さないため）
+    if (!eventDate) return true;
+    return eventDate >= today;
+  });
+
+  if (withNews.length === 0) return; // 表示できる未来のイベントが無ければ今の表示のままにする
 
   // 取得日時が新しい順に並べる
   withNews.sort(function (a, b) {
