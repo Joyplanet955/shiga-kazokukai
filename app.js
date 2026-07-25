@@ -88,7 +88,7 @@ function renderEventCard(ev, index) {
     + '<div class="event-marker" style="border-color:' + color + ';"></div>'
     + '<div class="event-content-wrapper"' + (hasNews ? '' : ' style="opacity:0.6;"') + '>'
     + '<span class="event-time-badge">' + escapeHtml(hasNews ? ev.date + '　' + ev.time : '情報なし') + '</span>'
-    + '<h4>' + escapeHtml(ev.baseName) + badge + '</h4>';
+    + '<h4><span class="event-base-name">' + escapeHtml(ev.baseName) + '</span>' + badge + '</h4>';
 
   if (hasNews) {
     html += '<div style="font-size:0.95rem; font-weight:700; color:var(--primary-color); margin-bottom:6px;">' + escapeHtml(ev.eventName) + '</div>'
