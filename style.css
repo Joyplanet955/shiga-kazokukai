@@ -1380,6 +1380,21 @@ ul {
     font-size: 1.1rem;
     color: var(--primary-color);
     margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.event-base-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+.branch-badge {
+    flex-shrink: 0;
 }
 
 .event-meta {
@@ -1582,5 +1597,9 @@ ul {
     .radio-group {
         flex-direction: column;
         gap: 16px;
+    }
+
+   　.event-content-wrapper h4 {
+        font-size: 0.95rem;
     }
 }
