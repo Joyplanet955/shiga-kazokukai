@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
+
+<style>
+  .article-photo {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #eef0f3;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+  }
+  .article-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+</style>
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -367,37 +384,19 @@
                         <div class="article-badge">活動報告</div>
                         <div class="article-content">
                             <span class="article-date">2026.06.15</span>
-                            <h3>大津駐屯地一般曹候補生 修了式見学</h3>
-                            <p>大津駐屯地の教育大隊における3ヶ月間の厳しい訓練を終えた新入隊員たちの修了式を、家族会として見学・激励しました。堂々たる行進と引き締まった表情に、感動の涙を流す家族も多く見られました。滋賀県家族会では、今後も彼らの防衛人としての歩みを温かく支援してまいります。</p>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <div class="article-badge">ボランティア</div>
-                        <div class="article-content">
-                            <span class="article-date">2026.05.20</span>
-                            <h3>饗庭野演習場周辺道路 クリーン作戦</h3>
-                            <p>高島市今津町の饗庭野（あいばの）演習場周辺道路にて、今津駐屯地部隊や近隣住民の方々と合同で清掃ボランティア活動を実施しました。演習場周辺の美化を図るとともに、地域住民と自衛隊、そして家族会との友好親善をさらに深める良い機会となりました。総勢50名で大量のゴミを回収しました。</p>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <div class="article-badge">イベント</div>
-                        <div class="article-content">
-                            <span class="article-date">2026.04.10</span>
-                            <h3>今津駐屯地創立記念行事 家族会交流ブース出展</h3>
-                            <p>春爛漫の今津駐屯地にて開催された「今津駐屯地創立記念行事」にて、滋賀県自衛隊家族会としての特設交流ブースを出展しました。現役隊員のご家族、そして入会を検討されている一般来場者様からの相談に対応し、多くの新規会員との出会いがありました。体験搭乗の案内なども行い賑わいました。</p>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <div class="article-badge">お知らせ</div>
-                        <div class="article-content">
-                            <span class="article-date">2026.03.12</span>
-                            <h3>新入隊員ご家族のためのオンライン個別相談会</h3>
-                            <p>今春から全国各地の教育隊へ入隊する新隊員の不安を解消するため、家族会役員による個別オンライン懇談会を実施しました。「宿舎での生活はどのようなものか」「連絡はどのくらい取れるのか」といった不安に対し、先輩家族のリアルな体験談を交えてアドバイスを送り、非常に喜ばれました。</p>
-                        </div>
-                    </article>
+                          <article class="article-card" data-event-id="event1">
+    　　　　　　　　　　　　<div class="article-photo"></div>
+    　　　　　　　　　　　　<div class="article-badge">活動報告</div>
+                　　<article class="article-card" data-event-id="event2">
+    　　　　　　　　　　　　<div class="article-photo"></div>
+    　　　　　　　　　　　　<div class="article-badge">ボランティア</div>
+                　　<article class="article-card" data-event-id="event3">
+    　　　　　　　　　　　　<div class="article-photo"></div>
+    　　　　　　　　　　　　<div class="article-badge">イベント</div>
+                　　<article class="article-card" data-event-id="event4">
+    　　　　　　　　　　　　<div class="article-photo"></div>
+    　　　　　　　　　　　　<div class="article-badge">お知らせ</div>
+                 </article>
                 </div>
             </div>
         </section>
@@ -487,5 +486,6 @@
 
     <!-- JavaScript -->
     <script src="app.js"></script>
+    <script src="photo-loader.js"></script>
 </body>
 </html>
