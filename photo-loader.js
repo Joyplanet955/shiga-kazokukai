@@ -4,7 +4,7 @@
  * 例: https://script.google.com/macros/s/AKfycb.../exec
  */
 (function () {
-  var GAS_WEB_APP_URL = 'ここにGASウェブアプリのURLを貼り付け'; // 例: https://script.google.com/macros/s/xxxxxxxx/exec
+  var GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzOtTzGjV_3qerlV6BG8GPy9h4lCRxUzayX01tklstV6CBNFSD38DaIjciENIEqM0YJzA/exec?action=photos'; // 例: https://script.google.com/macros/s/xxxxxxxx/exec
 
   if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL.indexOf('http') !== 0) {
     console.warn('photo-loader.js: GAS_WEB_APP_URL が設定されていません。');
