@@ -38,6 +38,12 @@
           if (h3) h3.textContent = data.title;
         }
 
+        // --- 日付 ---
+        if (data.date) {
+          var dateSpan = card.querySelector('.article-date');
+          if (dateSpan) dateSpan.textContent = data.date;
+        }
+
         // --- 本文 ---
         if (data.body) {
           var p = card.querySelector('.article-content p');
