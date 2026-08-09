@@ -90,6 +90,15 @@
             gap: 10px;
             align-items: stretch;
         }
+
+        /* フッターロゴ：縦長に伸びず、金色の円にきれいに収まるよう固定サイズ＋object-fitで調整 */
+        .footer-logo {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body>
