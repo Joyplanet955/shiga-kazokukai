@@ -91,11 +91,11 @@
             align-items: stretch;
         }
 
-        /* フッターロゴ：縦長に伸びず、金色の円にきれいに収まるよう固定サイズ＋object-fitで調整 */
+        /* フッターロゴ：ヘッダーロゴと同じくobject-fit:coverで金色の円いっぱいに表示（縦長画像の余白を防ぐ） */
         .footer-logo {
-            width: 56px;
-            height: 56px;
-            object-fit: contain;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
             border-radius: 50%;
             flex-shrink: 0;
         }
