@@ -15,6 +15,14 @@
     object-fit: cover;
     display: block;
   }
+#greeting-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+　}
+  
 </style>
     
 <head>
@@ -191,26 +199,28 @@
                 </div>
                 <div class="greeting-layout">
                     <div class="greeting-image-container">
-                        <div class="greeting-photo-wrapper">
+                        <div class="greeting-photo-wrapper" id="greeting-photo-wrapper">
                             <!-- 会長の肖像用プレースホルダーをシンボリックに表現したグラフィック -->
                             <div class="greeting-avatar">
                                 <span class="avatar-letter">饗</span>
                             </div>
                         </div>
                         <div class="greeting-profile">
-                            <p class="profile-name">饗庭 太郎 <span class="profile-title">（あいば たろう）</span></p>
+                            <p class="profile-name" id="greeting-name">饗庭 太郎 <span class="profile-title">（あいば たろう）</span></p>
                             <p class="profile-post">滋賀県自衛隊家族会 会長</p>
                         </div>
                     </div>
                     <div class="greeting-body">
                         <h3 class="greeting-heading">「守る人を、支える絆」の輪を滋賀から広げてまいります</h3>
-                        <p>滋賀県自衛隊家族会の公式ホームページにお越しいただき、誠にありがとうございます。</p>
-                        <p>私たち自衛隊家族会は、自衛隊員のご家族、そして自衛隊を支援してくださる地域の方々で構成される自主的な組織です。平素より、陸上自衛隊大津駐屯地、今津駐屯地、そして航空自衛隊饗庭野分屯基地など、滋賀県内に所在する部隊や自衛隊滋賀地方協力本部に対し、多大なるご理解とご協力を賜り、厚く御礼申し上げます。</p>
-                        <p>現在、自衛隊を取り巻く安全保障環境は厳しさを増しており、防衛出動や災害派遣など、隊員たちの果たす責任は極めて大きくなっています。そのような状況下で、隊員たちが身を挺して国防や災害救援に専念できるのは、何よりも「家族の温かい支え」があるからに他なりません。</p>
-                        <p>しかしながら、送り出すご家族の皆様におかれましても、「子供は元気にやっているだろうか」「任務に危険はないだろうか」といった不安や孤独を抱えられることがあるかと思います。私たち家族会は、そのようなご家族同士が寄り添い、励まし合い、情報交換を行える温かい「居場所」でありたいと考えております。</p>
-                        <p>この度、滋賀県自衛隊家族会として新たなホームページを開設する運びとなりました。これまでは伝わりにくかった各地区会の活動内容や、役員会・総会のペーパーレスな出欠管理、およびAIを活用した最新のイベント情報など、会員の皆様の利便性向上に繋がる機能を盛り込んでおります。</p>
-                        <p>自衛隊という日本の平和の砦を、滋賀県というこの地から、ご家族の強い「絆」でしっかりと支えていくために。これからも家族会一丸となって活動を推進してまいります。皆様の温かいご支援と、積極的なご参加を心よりお待ち申し上げます。</p>
-                        <p class="greeting-date">令和8年7月吉日</p>
+<div id="greeting-body-paragraphs">
+<p>滋賀県自衛隊家族会の公式ホームページに...</p>
+<p>私たち自衛隊家族会は...</p>
+<p>現在、自衛隊を取り巻く...</p>
+<p>しかしながら、送り出す...</p>
+<p>この度、滋賀県自衛隊家族会として...</p>
+<p>自衛隊という日本の平和の砦を...</p>
+</div>
+<p class="greeting-date">令和8年7月吉日</p>
                     </div>
                 </div>
             </div>
