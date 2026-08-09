@@ -4,7 +4,7 @@
  * 例: https://script.google.com/macros/s/AKfycb.../exec?action=photos
  */
 (function () {
-  var GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzOtTzGjV_3qerlV6BG8GPy9h4lCRxUzayX01tklstV6CBNFSD38DaIjciENIEqM0YJzA/exec'; // 既に実際のURLに書き換え済みならそのままでOK
+  var GAS_WEB_APP_URL = 'ここにGASウェブアプリのURLを貼り付け'; // 既に実際のURLに書き換え済みならそのままでOK
 
   if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL.indexOf('http') !== 0) {
     console.warn('photo-loader.js: GAS_WEB_APP_URL が設定されていません。');
@@ -50,6 +50,37 @@
           if (p) p.textContent = data.body;
         }
       });
+
+      // --- 会長挨拶（greeting）の反映 ---
+      var greeting = map && map['greeting'];
+      if (greeting) {
+        if (greeting.url) {
+          var photoWrap = document.getElementById('greeting-photo-wrapper');
+          if (photoWrap) {
+            var gImg = document.createElement('img');
+            gImg.src = greeting.url;
+            gImg.alt = '';
+            photoWrap.innerHTML = '';
+            photoWrap.appendChild(gImg);
+          }
+        }
+        if (greeting.title) {
+          var nameEl = document.getElementById('greeting-name');
+          if (nameEl) nameEl.textContent = greeting.title;
+        }
+        if (greeting.body) {
+          var bodyWrap = document.getElementById('greeting-body-paragraphs');
+          if (bodyWrap) {
+            var paragraphs = greeting.body.split(/\n\s*\n/).filter(function (t) { return t.trim(); });
+            bodyWrap.innerHTML = '';
+            paragraphs.forEach(function (text) {
+              var pEl = document.createElement('p');
+              pEl.textContent = text.trim();
+              bodyWrap.appendChild(pEl);
+            });
+          }
+        }
+      }
     })
     .catch(function (err) {
       console.warn('活動報告の内容読み込みに失敗しました', err);
